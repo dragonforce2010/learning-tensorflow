@@ -1,19 +1,16 @@
 # 使用梯度下降的优化方法快速解决线性回归问题
+import os
+# silence warning: tensorflow using SSE4.1, SSE4.2, and AVX
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 
 import numpy as np
+import matplotlib
+matplotlib.use("TkAgg")
 import matplotlib.pyplot as plt
 import tensorflow as tf 
 
-point_num = 100
-vectors = []
-
-for i in range(point_num):
-    x1 = np.random.normal(0, 0.67)
-    y1 = 0.1 * x1 + 0.2 + np.random.normal(0.0, 0.04)
-    vectors.append([x1, y1])
-
-x_data = [v[0] for v in vectors]
-y_data = [v[1] for v in vectors]
+x_data = np.random.normal(0, 0.67, 100)
+y_data = 0.1 * x_data + 0.2 + np.random.normal(0, 0.04, 100)
 
 plt.plot(x_data, y_data, 'r*', label='original data')
 plt.title('Linear Regression using gradient descent')

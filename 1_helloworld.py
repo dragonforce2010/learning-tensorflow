@@ -1,4 +1,7 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
+import os
+# silence warning: tensorflow using SSE4.1, SSE4.2, and AVX
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 
 # 引入tensorflow库
 import tensorflow as tf

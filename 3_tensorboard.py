@@ -1,5 +1,9 @@
 import tensorflow as tf
 
+import os
+# silence warning: tensorflow using SSE4.1, SSE4.2, and AVX
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
+
 # 构造graph的结构，用一个线性方程的例子
 # y = w*x + b
 w = tf.Variable(2.0, dtype=tf.float32, name="weight") # 权重
